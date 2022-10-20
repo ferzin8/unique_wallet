@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.fersman.uniquewallet"
-        minSdk 29
+        minSdk 31
         targetSdk 33
         versionCode 1
         versionName "1.0"
@@ -36,15 +36,26 @@ android {
 }
 
 dependencies {
-
+    //core
     implementation 'androidx.core:core-ktx:1.9.0'
+    implementation 'androidx.core:core-splashscreen:1.0.0'
+
+
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    
+    implementation 'androidx.viewpager2:viewpager2:1.1.0-beta01'
+
+    //recycle
+    implementation "androidx.recyclerview:recyclerview:1.2.1"
+    // For control over item selection of both touch and mouse driven selection
+    implementation "androidx.recyclerview:recyclerview-selection:1.2.0-alpha01"
+
+    //lifecycle
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
 
+    //navigation
     implementation 'androidx.navigation:navigation-fragment-ktx:2.5.2'
     implementation 'androidx.navigation:navigation-ui-ktx:2.5.2'
 

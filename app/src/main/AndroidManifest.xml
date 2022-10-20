@@ -6,17 +6,16 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/unique_logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/unique_logo_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.UniqueWallet"
-        tools:targetApi="31">
+        android:theme="@style/Theme.UniqueWallet.Starting"
+        tools:targetApi="33">
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.UniqueWallet.NoActionBar">
+            android:theme="@style/Theme.UniqueWallet.Starting">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,5 +27,4 @@
                 android:value="" />
         </activity>
     </application>
-
 </manifest>

@@ -1,7 +1,11 @@
 package com.fersman.uniquewallet
 
+
+import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.view.Menu
+import android.view.View
+import android.view.animation.AnticipateInterpolator
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
@@ -11,15 +15,19 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.animation.doOnEnd
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.fersman.uniquewallet.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        val splashScreen = installSplashScreen() //TODO splashscreen animation (in themes)
+
         super.onCreate(savedInstanceState)
+//        splashScreen.setKeepOnScreenCondition { true }
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -42,6 +50,28 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        splashScreenAnimation()
+    }
+
+    private fun splashScreenAnimation () {
+        splashScreen.setOnExitAnimationListener { splashScreenView ->
+            // Create your custom animation.
+            val slideUp = ObjectAnimator.ofFloat(
+                splashScreenView,
+                View.TRANSLATION_Y,
+                0f,
+                -splashScreenView.height.toFloat()
+            )
+            slideUp.interpolator = AnticipateInterpolator()
+            slideUp.duration = 2000L
+
+            // Call SplashScreenView.remove at the end of your custom animation.
+            slideUp.doOnEnd { splashScreenView.remove() }
+
+            // Run your animation.
+            slideUp.start()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
