@@ -1,4 +1,4 @@
-package com.fersman.uniquewallet.ui.home
+package com.fersman.uniquewallet.ui.home.mytokens
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

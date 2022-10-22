@@ -1,12 +1,11 @@
 package com.fersman.uniquewallet.adapter
 
-import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.fersman.uniquewallet.ui.home.MyTokensFragment
-import com.fersman.uniquewallet.ui.tokens.TokensListFragment
+import com.fersman.uniquewallet.ui.home.CoinsFragment
+import com.fersman.uniquewallet.ui.home.nfts.TokensListFragment
 
 class MyTokensPagerAdapter(fragmentManager: FragmentManager?, lifecycle: Lifecycle) :
     FragmentStateAdapter(fragmentManager!!, lifecycle) {
@@ -14,14 +13,11 @@ class MyTokensPagerAdapter(fragmentManager: FragmentManager?, lifecycle: Lifecyc
     private val fragmentList: ArrayList<Fragment> = ArrayList()
 
     override fun createFragment(position: Int): Fragment {
-        val fragment = TokensListFragment()
-        fragment.arguments = Bundle().apply {
-            // Our object is just an integer :-P
-            putInt(MyTokensFragment.ARG_OBJECT, position + 1)
+        return when (position) {
+            0 -> TokensListFragment()
+            1 -> CoinsFragment()
+            else -> TokensListFragment()
         }
-        fragmentList.add(fragment)
-
-        return fragment
     }
 
     override fun getItemCount(): Int {

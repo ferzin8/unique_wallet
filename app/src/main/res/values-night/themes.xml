@@ -3,15 +3,13 @@
     <style name="Theme.UniqueWallet" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/brandColor</item>
-        <item name="colorPrimaryVariant">@color/uniqueTextDark</item>
+        <item name="colorPrimaryVariant">@android:color/holo_green_dark</item>
         <item name="colorOnPrimary">@color/black</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_200</item>
-        <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">@color/brandColor</item>
+        <item name="android:statusBarColor">?attr/colorPrimary</item>
         <!-- Customize your theme here. -->
+        <item name="android:textColor">?attr/tabTextColor</item>
+        <item name="tabTextColor">@color/uniqueTextLight</item>
     </style>
 
     <style name="Theme.UniqueWallet.Starting" parent="Theme.SplashScreen">

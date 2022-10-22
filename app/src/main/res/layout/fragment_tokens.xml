@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/create_token"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        app:strokeColor="@color/brandColor"
+        app:cornerRadius="5dp"
         android:text="@string/create_token"
-        android:textColor="@color/white"
-        android:background="@color/brandColor"
-        android:layout_marginStart="@dimen/activity_horizontal_margin"
         android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
         android:layout_marginTop="@dimen/activity_vertical_margin"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
@@ -23,31 +26,16 @@
         android:layout_height="32dp"
         android:text="650 results"
         android:lineSpacingExtra="5sp"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
         android:textSize="16sp"
-        android:textColor="?attr/colorPrimaryVariant"
         app:layout_constraintTop_toBottomOf="@id/create_token"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:layout_marginStart="@dimen/activity_horizontal_margin"/>
+        android:layout_marginTop="@dimen/activity_vertical_margin"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycle_token_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintTop_toBottomOf="@id/results_count"
-        app:layout_constraintStart_toStartOf="parent"
-        android:dividerHeight="1dp"/>
-
-    <Button
-        android:id="@+id/filter_and_sort"
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/filter_sort"
-        android:textColor="@color/white"
-        android:background="@color/brandColor"
-        android:layout_marginStart="@dimen/activity_horizontal_margin"
-        android:layout_marginEnd="@dimen/activity_horizontal_margin"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/results_count"
         app:layout_constraintStart_toStartOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

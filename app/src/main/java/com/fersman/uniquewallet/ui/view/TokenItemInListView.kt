@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory
 import android.os.Handler
 import android.os.Looper
 import android.util.AttributeSet
+import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -40,11 +41,6 @@ class TokenItemInListView(context: Context, attributeSet: AttributeSet) : Constr
         collectionNameView.text = collectionName
     }
 
-    private fun setParamsForImage () {
-        var layoutParams = imageView.layoutParams
-        layoutParams.height = layoutParams.width
-    }
-
     private fun downloadImage () {
         val executor = Executors.newSingleThreadExecutor()
         // Once the executor parses the URL
@@ -62,7 +58,6 @@ class TokenItemInListView(context: Context, attributeSet: AttributeSet) : Constr
                 // Only for making changes in UI
                 handler.post {
                     imageView.setImageBitmap(image)
-//                    setParamsForImage()
                 }
             }
             catch (e: Exception) {

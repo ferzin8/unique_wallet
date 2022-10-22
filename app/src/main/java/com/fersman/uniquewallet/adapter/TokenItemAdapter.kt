@@ -22,7 +22,7 @@ class TokenItemAdapter(private val tokenItems: List<TokenItemObject>): RecyclerV
         viewType: Int
     ): ViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.token_item_view, parent, false) as TokenItemInListView
+            .inflate(R.layout.view_token_item, parent, false) as TokenItemInListView
 
         return ViewHolder(view)
     }
